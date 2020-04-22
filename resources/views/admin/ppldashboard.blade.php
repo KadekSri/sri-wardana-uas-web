@@ -3,7 +3,7 @@
 @section('content')
 <section class="content-header">
       <h1>
-        Beranda
+        Beranda 2
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -12,6 +12,7 @@
       </ol>
 </section>
 <div class="content">
+@csrf
     <div class="panel panel-flat border-top-lg border-top-primary">
         <div class="panel-body">
             <div class="col-lg-12">
@@ -65,28 +66,6 @@
                         </div>
                     </div>
             </div>
-            </div>
-            <div class="col-lg-12">
-            <a href="{{route('rental.create')}}">Tambah Data</a>
-                <table class="table table-bordered">
-                    <thead>
-                        <tr><th>#</th><th>MOBIL</th><th>PLAT</th><th>WARNA</th><th>TAHUN</th>><th>OPSI</th></tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($mobil as $in=>$val)
-                        <tr><td>{{($in+1)}}</td><td>{{$val->merk_mobil}}</td><td>{{$val->plat_mobil}}</td><td>{{$val->warna_mobil}}</td><td>{{$val->tahun_mobil}}</td>
-                        <td>
-                        <a href="{{route('rental.edit',$val->id_mobil)}}">update</a>
-                        <form action="{{route('rental.destroy', $val->id_mobil)}}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                        <button type="submit">delete</button>
-                        </form>
-                        </td></tr>
-                        @endforeach
-                    </tbody>
-                </table>
-                {{$mobil->links()}}
             </div>
         </div>
     </div>

@@ -17,3 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::resource('rental','AdminController');
+Auth::routes();
+
+Route::get('/home', 'AdminController@index')->name('home');
+
+Route::resource('PPL','PplController');
+Auth::routes();
+
+Route::get('/ppl', 'PplController@index')->name('ppl');
