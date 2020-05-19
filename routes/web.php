@@ -16,12 +16,21 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('rental','AdminController');
+
+ 
+Route::get('/admin','AdminController@index');
+Route::post('/admin/create','AdminController@create');
+Route::get('/admin/{id}/edit','AdminController@edit');
+Route::post('/admin/{id}/update','AdminController@update');
+Route::get('/admin/{id}/delete','AdminController@delete');
+Auth::routes();
+
+
 Auth::routes();
 
 Route::get('/home', 'AdminController@index')->name('home');
 
-Route::resource('PPL','PplController');
 Auth::routes();
 
-Route::get('/ppl', 'PplController@index')->name('ppl');
+Route::get('/home', 'AdminController@index')->name('home');
+
